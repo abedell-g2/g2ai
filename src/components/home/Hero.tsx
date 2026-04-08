@@ -91,7 +91,7 @@ export default function Hero({ dark }: HeroProps) {
           {/* Pillar pills below search */}
           {!showDropdown && (
             <div className="flex justify-center gap-2 mt-4 flex-wrap">
-              {['AI Products', 'AI Workflows', 'AI Evaluations', 'AI Experts'].map((label) => (
+              {['Products', 'Workflows', 'Evaluations', 'Experts'].map((label) => (
                 <a
                   key={label}
                   href="#"

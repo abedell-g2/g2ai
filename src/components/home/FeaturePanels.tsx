@@ -4,53 +4,47 @@ import { LayoutGrid, GitBranch, Scale, Users } from 'lucide-react'
 const CARDS = [
   {
     eyebrow: 'Discover & Compare',
-    headline: 'AI Products',
+    headline: 'Products',
     description:
       'Thousands of AI tools ranked by verified user reviews. Not vendor claims. Not hype. What real teams actually use.',
     cta: 'Browse Products',
     to: '#',
     icon: LayoutGrid,
-    iconBg: 'bg-[var(--g2-purple-light)]',
-    iconColor: 'text-[var(--g2-purple)]',
-    ctaStyle: 'bg-[var(--g2-purple)] text-white hover:bg-purple-700',
+    accentColor: '#ec4899',
   },
   {
     eyebrow: 'Build & Share',
-    headline: 'AI Workflows',
+    headline: 'Workflows',
     description:
       "See how real teams string AI together from first prompt to final output. Steal their blueprint. Ship yours.",
     cta: 'Explore Workflows',
     to: '/playbook/new',
     icon: GitBranch,
-    iconBg: 'bg-orange-50 dark:bg-orange-950/40',
-    iconColor: 'text-[var(--g2-orange)]',
-    ctaStyle: 'bg-[var(--g2-orange)] text-white hover:bg-orange-600',
+    accentColor: '#f97316',
   },
   {
     eyebrow: 'Test & Benchmark',
-    headline: 'AI Evaluations',
+    headline: 'Evaluations',
     description:
       "Head-to-head model comparisons with real outputs. No marketing spin. See what actually performs for your use case.",
     cta: 'View Evaluations',
     to: '#',
     icon: Scale,
-    iconBg: 'bg-teal-50 dark:bg-teal-950/40',
-    iconColor: 'text-teal-600',
-    ctaStyle: 'bg-teal-600 text-white hover:bg-teal-700',
+    accentColor: '#14b8a6',
   },
   {
     eyebrow: 'Learn & Follow',
-    headline: 'AI Experts',
+    headline: 'Experts',
     description:
       "Practitioners who've built, deployed, and battle-tested AI across every industry. Get their take, not a thought leader's.",
     cta: 'Meet the Experts',
     to: '#',
     icon: Users,
-    iconBg: 'bg-sky-50 dark:bg-sky-950/40',
-    iconColor: 'text-sky-600',
-    ctaStyle: 'bg-sky-600 text-white hover:bg-sky-700',
+    accentColor: '#0ea5e9',
   },
 ]
+
+const CTA_GRADIENT = 'linear-gradient(90deg, #5746b2, #a855f7, #ec4899)'
 
 export default function FeaturePanels() {
   return (
@@ -59,11 +53,16 @@ export default function FeaturePanels() {
         {CARDS.map((card) => {
           const Icon = card.icon
           const isExternal = card.to === '#'
+          const iconGradient = `linear-gradient(135deg, #5746b2, ${card.accentColor})`
+
           const cardContent = (
-            <div className="flex flex-col h-full rounded-2xl border border-[var(--g2-border)] bg-[var(--g2-surface)] p-5 gap-5 hover:border-[var(--g2-purple)] transition-colors group">
-              {/* Icon */}
-              <div className={`w-11 h-11 rounded-xl flex items-center justify-center ${card.iconBg}`}>
-                <Icon size={20} className={card.iconColor} />
+            <div className="flex flex-col h-full rounded-2xl border border-[var(--g2-border)] bg-[var(--g2-surface)] p-5 gap-5 hover:border-[var(--g2-purple)] transition-colors">
+              {/* Icon with per-section gradient bg */}
+              <div
+                className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0"
+                style={{ background: iconGradient }}
+              >
+                <Icon size={20} className="text-white" />
               </div>
 
               {/* Text */}
@@ -79,11 +78,16 @@ export default function FeaturePanels() {
                 </p>
               </div>
 
-              {/* CTA */}
+              {/* Gradient border CTA */}
               <div className="mt-auto pt-1">
-                <span className={`inline-flex items-center px-4 py-2 rounded-full text-[12.5px] font-semibold transition-colors ${card.ctaStyle}`}>
-                  {card.cta}
-                </span>
+                <div
+                  className="inline-block p-[1.5px] rounded-full"
+                  style={{ background: CTA_GRADIENT }}
+                >
+                  <span className="block px-4 py-2 rounded-full bg-[var(--g2-surface)] text-[var(--g2-dark)] text-[12.5px] font-semibold whitespace-nowrap">
+                    {card.cta}
+                  </span>
+                </div>
               </div>
             </div>
           )
