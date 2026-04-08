@@ -44,8 +44,6 @@ const CARDS = [
   },
 ]
 
-const CTA_GRADIENT = 'linear-gradient(90deg, #5746b2, #a855f7, #ec4899)'
-
 export default function FeaturePanels() {
   return (
     <section aria-label="Feature highlights" className="max-w-[1160px] mx-auto px-8 py-6 pb-14">
@@ -78,16 +76,11 @@ export default function FeaturePanels() {
                 </p>
               </div>
 
-              {/* Gradient border CTA */}
+              {/* CTA */}
               <div className="mt-auto pt-1">
-                <div
-                  className="inline-block p-[1.5px] rounded-full"
-                  style={{ background: CTA_GRADIENT }}
-                >
-                  <span className="block px-4 py-2 rounded-full bg-[var(--g2-surface)] text-[var(--g2-dark)] text-[12.5px] font-semibold whitespace-nowrap">
-                    {card.cta}
-                  </span>
-                </div>
+                <span className="inline-block px-4 py-2 rounded-full border border-[var(--g2-purple)] text-[var(--g2-purple)] text-[12.5px] font-semibold whitespace-nowrap">
+                  {card.cta}
+                </span>
               </div>
             </div>
           )
