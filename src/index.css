@@ -28,6 +28,22 @@
   color-scheme: light dark;
 }
 
+/* Hero headline gradient animation */
+@keyframes gradient-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #5746b2, #a855f7, #ec4899, #a855f7, #5746b2);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 6s ease infinite;
+}
+
 /* Modal entrance animations */
 @keyframes modal-backdrop {
   from { opacity: 0; }

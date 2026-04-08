@@ -4,63 +4,6 @@ import SearchDropdown from './SearchDropdown'
 
 const BASE = import.meta.env.BASE_URL
 
-const AI_FRAMES = Array.from({ length: 18 }, (_, i) =>
-  `${BASE}images/ai-images/Property${i + 1}.png`
-)
-const FRAME_MS = 110
-
-function AnimatedAI() {
-  const [ready, setReady] = useState(false)
-  const [frame, setFrame] = useState(0)
-  // Pick the landing frame once at mount so it's consistent per page load
-  const [finalFrame] = useState(() => Math.floor(Math.random() * AI_FRAMES.length))
-  const done = frame >= AI_FRAMES.length
-
-  // Preload all frames, then start
-  useEffect(() => {
-    let loaded = 0
-    AI_FRAMES.forEach((src) => {
-      const img = new Image()
-      img.onload = img.onerror = () => {
-        if (++loaded === AI_FRAMES.length) setReady(true)
-      }
-      img.src = src
-    })
-  }, [])
-
-  // Advance one frame at a time
-  useEffect(() => {
-    if (!ready || done) return
-    const t = setTimeout(() => setFrame((f) => f + 1), FRAME_MS)
-    return () => clearTimeout(t)
-  }, [ready, frame, done])
-
-  // While cycling use the current frame; once done, hold the random landing frame
-  const displaySrc = ready
-    ? AI_FRAMES[done ? finalFrame : Math.min(frame, AI_FRAMES.length - 1)]
-    : AI_FRAMES[0]
-
-  return (
-    <span
-      className="inline-block"
-      style={{ height: '1.65em', verticalAlign: '-0.3em' }}
-    >
-      <img
-        src={displaySrc}
-        alt="AI."
-        aria-label="AI."
-        style={{
-          display: 'block',
-          height: '100%',
-          width: 'auto',
-          opacity: ready ? 1 : 0,
-          transition: 'opacity 0.3s ease',
-        }}
-      />
-    </span>
-  )
-}
-
 interface HeroProps {
   dark: boolean
 }
@@ -74,7 +17,6 @@ export default function Hero({ dark }: HeroProps) {
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const searchRef = useRef<HTMLDivElement>(null)
 
-  // Close on click outside
   useEffect(() => {
     function handleClick(e: MouseEvent) {
       if (searchRef.current && !searchRef.current.contains(e.target as Node)) {
@@ -95,11 +37,7 @@ export default function Hero({ dark }: HeroProps) {
     >
       {/* Decorative background */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <img
-          src={bgImage}
-          alt=""
-          className="w-full h-full object-cover"
-        />
+        <img src={bgImage} alt="" className="w-full h-full object-cover" />
       </div>
 
       <div className="relative">
@@ -109,18 +47,17 @@ export default function Hero({ dark }: HeroProps) {
             id="hero-heading"
             className="text-[clamp(2rem,5.5vw,5.5rem)] leading-[1.05] tracking-tight text-[var(--g2-dark)] mb-7 whitespace-nowrap"
           >
-            <span className="font-light">Real intelligence for </span>
-            <AnimatedAI />
+            <span className="font-light">Real Intelligence for </span>
+            <span className="font-black gradient-text">Real AI.</span>
           </h1>
         </div>
 
         {/* Search bar + dropdown wrapper */}
         <div ref={searchRef} className="relative max-w-[1100px] mx-auto px-8">
-          {/* Search form — centered inside the wider wrapper */}
           <div className="max-w-[620px] mx-auto">
             <form
               role="search"
-              aria-label="Find AI software"
+              aria-label="Search G2 AI"
               onSubmit={(e) => e.preventDefault()}
               className="flex items-center gap-3 rounded-full border px-6 py-5 shadow-sm transition-all focus-within:shadow-md"
               style={{
