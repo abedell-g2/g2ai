@@ -4,10 +4,10 @@ import { LayoutGrid, GitBranch, Scale, Users } from 'lucide-react'
 const CARDS = [
   {
     eyebrow: 'Discover & Compare',
-    headline: 'Products',
+    headline: 'Agents',
     description:
       'Thousands of AI tools ranked by verified user reviews. Not vendor claims. Not hype. What real teams actually use.',
-    cta: 'Browse Products',
+    cta: 'Browse Agents',
     to: '#',
     icon: LayoutGrid,
     accentColor: '#ec4899',
