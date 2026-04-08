@@ -1,5 +1,4 @@
-import { Search, Sparkles, PenLine } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { Search, Sparkles } from 'lucide-react'
 import { useState, useEffect, useRef } from 'react'
 import SearchDropdown from './SearchDropdown'
 
@@ -110,7 +109,7 @@ export default function Hero({ dark }: HeroProps) {
             id="hero-heading"
             className="text-[clamp(2rem,5.5vw,5.5rem)] leading-[1.05] tracking-tight text-[var(--g2-dark)] mb-7 whitespace-nowrap"
           >
-            <span className="font-light">Where you go for </span>
+            <span className="font-light">Real intelligence for </span>
             <AnimatedAI />
           </h1>
         </div>
@@ -133,8 +132,8 @@ export default function Hero({ dark }: HeroProps) {
               <input
                 type="search"
                 value={query}
-                placeholder="Find AI software, playbooks, and more..."
-                aria-label="Find AI software"
+                placeholder="Find AI products, workflows, evaluations, and experts..."
+                aria-label="Search G2 AI"
                 className="flex-1 bg-transparent text-[var(--g2-dark)] placeholder:text-[var(--g2-muted)] text-[16px] outline-none"
                 onChange={(e) => {
                   setQuery(e.target.value)
@@ -152,16 +151,18 @@ export default function Hero({ dark }: HeroProps) {
             </form>
           </div>
 
-          {/* CTA below search */}
+          {/* Pillar pills below search */}
           {!showDropdown && (
-            <div className="flex justify-center mt-4">
-              <Link
-                to="/playbook/new"
-                className="flex items-center gap-2 text-[13.5px] font-semibold text-[var(--g2-muted)] hover:text-[var(--g2-purple)] transition-colors"
-              >
-                <PenLine size={14} />
-                Create your AI Playbook
-              </Link>
+            <div className="flex justify-center gap-2 mt-4 flex-wrap">
+              {['AI Products', 'AI Workflows', 'AI Evaluations', 'AI Experts'].map((label) => (
+                <a
+                  key={label}
+                  href="#"
+                  className="text-[12px] font-semibold px-3.5 py-1.5 rounded-full border border-[var(--g2-border)] text-[var(--g2-muted)] hover:border-[var(--g2-purple)] hover:text-[var(--g2-purple)] transition-colors"
+                >
+                  {label}
+                </a>
+              ))}
             </div>
           )}
 

@@ -18,10 +18,10 @@ export default function Navbar({ dark, onToggle }: NavbarProps) {
 
         {/* Nav links — centered in the middle column */}
         <nav aria-label="Primary navigation" className="hidden md:flex items-center justify-center gap-7">
-          <a href="#" className="text-[15px] font-medium text-[var(--g2-muted)] hover:text-[var(--g2-dark)] transition-colors">Explore Software</a>
-          <Link to="/playbook/new" className="text-[15px] font-medium text-[var(--g2-muted)] hover:text-[var(--g2-dark)] transition-colors">AI Playbooks</Link>
-          <a href="#" className="text-[15px] font-medium text-[var(--g2-muted)] hover:text-[var(--g2-dark)] transition-colors">Categories</a>
-          <a href="#" className="text-[15px] font-medium text-[var(--g2-muted)] hover:text-[var(--g2-dark)] transition-colors">Rankings</a>
+          <a href="#" className="text-[15px] font-medium text-[var(--g2-muted)] hover:text-[var(--g2-dark)] transition-colors">AI Products</a>
+          <Link to="/playbook/new" className="text-[15px] font-medium text-[var(--g2-muted)] hover:text-[var(--g2-dark)] transition-colors">AI Workflows</Link>
+          <a href="#" className="text-[15px] font-medium text-[var(--g2-muted)] hover:text-[var(--g2-dark)] transition-colors">AI Evaluations</a>
+          <a href="#" className="text-[15px] font-medium text-[var(--g2-muted)] hover:text-[var(--g2-dark)] transition-colors">AI Experts</a>
         </nav>
 
         {/* Right: theme toggle + avatar */}
