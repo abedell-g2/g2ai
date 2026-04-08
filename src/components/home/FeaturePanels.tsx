@@ -78,7 +78,7 @@ export default function FeaturePanels() {
 
               {/* CTA */}
               <div className="mt-auto pt-1">
-                <span className="inline-block px-4 py-2 rounded-full border border-[var(--g2-purple)] text-[var(--g2-purple)] text-[12.5px] font-semibold whitespace-nowrap">
+                <span className="inline-block px-4 py-2 rounded-full border border-[var(--g2-purple)] text-[var(--g2-dark)] text-[12.5px] font-semibold whitespace-nowrap">
                   {card.cta}
                 </span>
               </div>
