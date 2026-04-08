@@ -34,7 +34,7 @@ export default function App() {
   const { dark, toggle } = useTheme()
 
   return (
-    <BrowserRouter basename="/g2ai-playbooks">
+    <BrowserRouter basename="/g2ai">
       <Routes>
         <Route path="/" element={<Homepage dark={dark} onToggle={toggle} />} />
         <Route path="/playbook/new" element={<PlaybookBuilder dark={dark} onToggle={toggle} />} />
