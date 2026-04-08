@@ -45,10 +45,10 @@ export default function Hero({ dark }: HeroProps) {
         <div className="max-w-[860px] mx-auto px-8">
           <h1
             id="hero-heading"
-            className="text-[clamp(2rem,5.5vw,5.5rem)] leading-[1.05] tracking-tight text-[var(--g2-dark)] mb-7 whitespace-nowrap"
+            className="text-[clamp(2rem,5.5vw,5.5rem)] leading-[1.05] tracking-tight text-[var(--g2-dark)] mb-7 text-center"
           >
             <span className="font-light">Real Intelligence for </span>
-            <span className="font-black gradient-text">Real AI.</span>
+            <span className="font-medium gradient-text">Real AI.</span>
           </h1>
         </div>
 
