@@ -1,50 +1,53 @@
 import { Link } from 'react-router-dom'
 import { LayoutGrid, GitBranch, Scale, Users } from 'lucide-react'
 
-const CARDS = [
-  {
-    eyebrow: 'Discover & Compare',
-    headline: 'Agents',
-    description:
-      'Thousands of AI tools ranked by verified user reviews. Not vendor claims. Not hype. What real teams actually use.',
-    cta: 'Browse Agents',
-    to: '#',
-    icon: LayoutGrid,
-    accentColor: '#ec4899',
-  },
-  {
-    eyebrow: 'Build & Share',
-    headline: 'Workflows',
-    description:
-      "See how real teams string AI together from first prompt to final output. Steal their blueprint. Ship yours.",
-    cta: 'Explore Workflows',
-    to: '/playbook/new',
-    icon: GitBranch,
-    accentColor: '#f97316',
-  },
-  {
-    eyebrow: 'Test & Benchmark',
-    headline: 'Evaluations',
-    description:
-      "Head-to-head model comparisons with real outputs. No marketing spin. See what actually performs for your use case.",
-    cta: 'View Evaluations',
-    to: '#',
-    icon: Scale,
-    accentColor: '#14b8a6',
-  },
-  {
-    eyebrow: 'Learn & Follow',
-    headline: 'Experts',
-    description:
-      "Practitioners who've built, deployed, and battle-tested AI across every industry. Get their take, not a thought leader's.",
-    cta: 'Meet the Experts',
-    to: '#',
-    icon: Users,
-    accentColor: '#0ea5e9',
-  },
-]
+interface FeaturePanelsProps {
+  workflowTerm?: string
+}
 
-export default function FeaturePanels() {
+export default function FeaturePanels({ workflowTerm = 'Workflows' }: FeaturePanelsProps) {
+  const CARDS = [
+    {
+      eyebrow: 'Discover & Compare',
+      headline: 'Agents',
+      description:
+        'Thousands of AI tools ranked by verified user reviews. Not vendor claims. Not hype. What real teams actually use.',
+      cta: 'Browse Agents',
+      to: '#',
+      icon: LayoutGrid,
+      accentColor: '#ec4899',
+    },
+    {
+      eyebrow: 'Build & Share',
+      headline: workflowTerm,
+      description:
+        "See how real teams string AI together from first prompt to final output. Steal their blueprint. Ship yours.",
+      cta: `Explore ${workflowTerm}`,
+      to: '/playbook/new',
+      icon: GitBranch,
+      accentColor: '#f97316',
+    },
+    {
+      eyebrow: 'Test & Benchmark',
+      headline: 'Evaluations',
+      description:
+        "Head-to-head model comparisons with real outputs. No marketing spin. See what actually performs for your use case.",
+      cta: 'View Evaluations',
+      to: '#',
+      icon: Scale,
+      accentColor: '#14b8a6',
+    },
+    {
+      eyebrow: 'Learn & Follow',
+      headline: 'Experts',
+      description:
+        "Practitioners who've built, deployed, and battle-tested AI across every industry. Get their take, not a thought leader's.",
+      cta: 'Meet the Experts',
+      to: '#',
+      icon: Users,
+      accentColor: '#0ea5e9',
+    },
+  ]
   return (
     <section aria-label="Feature highlights" className="max-w-[1160px] mx-auto px-8 py-6 pb-14">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">

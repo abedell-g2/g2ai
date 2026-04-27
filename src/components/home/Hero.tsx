@@ -6,9 +6,10 @@ const BASE = import.meta.env.BASE_URL
 
 interface HeroProps {
   dark: boolean
+  workflowTerm?: string
 }
 
-export default function Hero({ dark }: HeroProps) {
+export default function Hero({ dark, workflowTerm = 'Workflows' }: HeroProps) {
   const bgImage = dark
     ? `${BASE}images/Background_DarkMode.svg`
     : `${BASE}images/Background_LightMode.svg`
@@ -91,7 +92,7 @@ export default function Hero({ dark }: HeroProps) {
           {/* Pillar pills below search */}
           {!showDropdown && (
             <div className="flex justify-center gap-2 mt-4 flex-wrap">
-              {['Agents', 'Workflows', 'Evaluations', 'Experts'].map((label) => (
+              {['Agents', workflowTerm, 'Evaluations', 'Experts'].map((label) => (
                 <a
                   key={label}
                   href="#"

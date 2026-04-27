@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from 'react-router-dom'
-import { Star, Shuffle, PenLine, ArrowLeft, BookOpen } from 'lucide-react'
+import { Star, Shuffle, PenLine, ArrowLeft, BookOpen, Lightbulb, Trophy } from 'lucide-react'
 import Navbar from '../components/layout/Navbar'
 import ToolLogo from '../components/ui/ToolLogo'
 import { getPlaybookById, getProductById } from '../data/searchData'
@@ -126,6 +126,21 @@ export default function PlaybookView({ dark, onToggle }: Props) {
           </div>
         </div>
 
+        {/* Problem */}
+        {playbook.problem && (
+          <div className="mb-8 rounded-xl border border-[var(--g2-border)] bg-[var(--g2-surface)] p-5">
+            <div className="flex items-center gap-2 mb-3">
+              <Lightbulb size={15} className="text-[var(--g2-purple)] shrink-0" />
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[var(--g2-muted)]">
+                The Problem
+              </p>
+            </div>
+            <p className="text-[15px] text-[var(--g2-text)] leading-relaxed">
+              {playbook.problem}
+            </p>
+          </div>
+        )}
+
         {/* Tools used */}
         <div className="mb-8">
           <p className="text-[11px] font-semibold uppercase tracking-widest text-[var(--g2-muted)] mb-4">
@@ -184,6 +199,21 @@ export default function PlaybookView({ dark, onToggle }: Props) {
             })}
           </div>
         </div>
+
+        {/* Biggest Win */}
+        {playbook.biggestWin && (
+          <div className="mt-8 rounded-xl border border-[var(--g2-border)] bg-[var(--g2-surface)] p-5">
+            <div className="flex items-center gap-2 mb-3">
+              <Trophy size={15} className="text-[var(--g2-star)] shrink-0" />
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[var(--g2-muted)]">
+                Biggest Win
+              </p>
+            </div>
+            <p className="text-[15px] text-[var(--g2-text)] leading-relaxed">
+              {playbook.biggestWin}
+            </p>
+          </div>
+        )}
 
         {/* Bottom CTAs */}
         <div className="mt-10 pt-10 border-t border-[var(--g2-border)] flex items-center gap-3">
