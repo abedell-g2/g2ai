@@ -37,7 +37,7 @@ export default function PlaybookView({ dark, onToggle }: Props) {
   if (!playbook) {
     return (
       <div className="min-h-screen bg-[var(--g2-bg)]">
-        <Navbar dark={dark} onToggle={onToggle} />
+        <Navbar dark={dark} onToggle={onToggle} workflowTerm="[Name]" />
         <div className="max-w-[860px] mx-auto px-8 py-24 text-center">
           <p className="text-[var(--g2-muted)] text-lg">[Name] not found.</p>
           <button
@@ -56,7 +56,7 @@ export default function PlaybookView({ dark, onToggle }: Props) {
   return (
     <div className="min-h-screen bg-[var(--g2-bg)] transition-colors duration-200">
       <a href="#main-content" className="skip-link">Skip to content</a>
-      <Navbar dark={dark} onToggle={onToggle} />
+      <Navbar dark={dark} onToggle={onToggle} workflowTerm="[Name]" />
 
       <main id="main-content" className="max-w-[860px] mx-auto px-8 py-12">
 
