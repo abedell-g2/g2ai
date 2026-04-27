@@ -442,7 +442,7 @@ export const PLAYBOOKS: PlaybookData[] = [
   {
     id: 'g2-ai-lab-management',
     title: 'Managing Five Simultaneous AI Lab Products',
-    author: '[Name Here]',
+    author: 'Miao C.',
     authorRole: 'Product Growth',
     company: 'G2',
     toolIds: ['claude', 'chatgpt', 'codeium', 'gemini', 'sendinblue', 'monday', 'slack', 'highspot', 'google-workspace', 'zoom', 'granola'],

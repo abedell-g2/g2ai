@@ -39,7 +39,7 @@ export default function PlaybookView({ dark, onToggle }: Props) {
       <div className="min-h-screen bg-[var(--g2-bg)]">
         <Navbar dark={dark} onToggle={onToggle} />
         <div className="max-w-[860px] mx-auto px-8 py-24 text-center">
-          <p className="text-[var(--g2-muted)] text-lg">Playbook not found.</p>
+          <p className="text-[var(--g2-muted)] text-lg">[Name] not found.</p>
           <button
             onClick={() => navigate('/')}
             className="mt-6 px-6 py-2.5 rounded-full bg-[var(--g2-purple)] text-white font-semibold text-[14px] hover:bg-purple-700 transition-colors"
@@ -77,7 +77,7 @@ export default function PlaybookView({ dark, onToggle }: Props) {
             </div>
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-widest text-[var(--g2-muted)]">
-                AI Playbook
+                AI [Name]
               </p>
               <h1 className="text-[28px] font-black text-[var(--g2-dark)] leading-tight">
                 {playbook.title}
@@ -114,7 +114,7 @@ export default function PlaybookView({ dark, onToggle }: Props) {
               className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-[var(--g2-purple)] text-white font-semibold text-[13.5px] hover:bg-purple-700 transition-colors"
             >
               <Shuffle size={14} />
-              Remix this Playbook
+              Remix this [Name]
             </button>
             <button
               onClick={() => navigate('/playbook/new')}
@@ -144,7 +144,7 @@ export default function PlaybookView({ dark, onToggle }: Props) {
         {/* Tools used */}
         <div className="mb-8">
           <p className="text-[11px] font-semibold uppercase tracking-widest text-[var(--g2-muted)] mb-4">
-            Tools in this Playbook
+            Tools in this [Name]
           </p>
           <div className="flex flex-wrap gap-3">
             {tools.map((tool) => tool && (
@@ -167,7 +167,7 @@ export default function PlaybookView({ dark, onToggle }: Props) {
         {/* Steps */}
         <div>
           <p className="text-[11px] font-semibold uppercase tracking-widest text-[var(--g2-muted)] mb-4">
-            Playbook Steps
+            [Name] Steps
           </p>
           <div className="flex flex-col gap-0">
             {playbook.steps.map((step, i) => {
@@ -222,7 +222,7 @@ export default function PlaybookView({ dark, onToggle }: Props) {
             className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-[var(--g2-purple)] text-white font-semibold text-[13.5px] hover:bg-purple-700 transition-colors"
           >
             <Shuffle size={14} />
-            Remix this Playbook
+            Remix this [Name]
           </button>
           <button
             onClick={() => navigate('/playbook/new')}
