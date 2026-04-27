@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import './index.css'
 import Navbar from './components/layout/Navbar'
 import Hero from './components/home/Hero'
@@ -34,7 +34,7 @@ export default function App() {
   const { dark, toggle } = useTheme()
 
   return (
-    <BrowserRouter basename="/g2ai">
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Homepage dark={dark} onToggle={toggle} />} />
         <Route path="/ai-workflows" element={<Homepage dark={dark} onToggle={toggle} workflowTerm="AI Workflows" />} />
@@ -43,6 +43,6 @@ export default function App() {
         <Route path="/playbook/new" element={<PlaybookBuilder dark={dark} onToggle={toggle} />} />
         <Route path="/playbook/view/:id" element={<PlaybookView dark={dark} onToggle={toggle} />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
