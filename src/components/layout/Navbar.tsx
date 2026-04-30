@@ -19,10 +19,10 @@ export default function Navbar({ dark, onToggle, workflowTerm = 'Workflows' }: N
 
         {/* Nav links — centered in the middle column */}
         <nav aria-label="Primary navigation" className="hidden md:flex items-center justify-center gap-7">
-          <a href="#" className="text-[17px] font-medium text-[var(--g2-muted)] hover:text-[var(--g2-dark)] transition-colors">Agents</a>
-          <Link to="/playbook/new" className="text-[17px] font-medium text-[var(--g2-muted)] hover:text-[var(--g2-dark)] transition-colors">{workflowTerm}</Link>
-          <a href="#" className="text-[17px] font-medium text-[var(--g2-muted)] hover:text-[var(--g2-dark)] transition-colors">Evaluations</a>
-          <a href="#" className="text-[17px] font-medium text-[var(--g2-muted)] hover:text-[var(--g2-dark)] transition-colors">Experts</a>
+          <Link to="/coming-soon" className="text-[17px] font-medium text-[var(--g2-muted)] hover:text-[var(--g2-dark)] transition-colors">Agents</Link>
+          <Link to="/coming-soon" className="text-[17px] font-medium text-[var(--g2-muted)] hover:text-[var(--g2-dark)] transition-colors">{workflowTerm}</Link>
+          <Link to="/coming-soon" className="text-[17px] font-medium text-[var(--g2-muted)] hover:text-[var(--g2-dark)] transition-colors">Evaluations</Link>
+          <Link to="/coming-soon" className="text-[17px] font-medium text-[var(--g2-muted)] hover:text-[var(--g2-dark)] transition-colors">Experts</Link>
         </nav>
 
         {/* Right: theme toggle + avatar */}

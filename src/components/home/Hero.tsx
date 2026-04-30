@@ -4,12 +4,19 @@ import SearchDropdown from './SearchDropdown'
 
 const BASE = import.meta.env.BASE_URL
 
+const CHIPS = [
+  { label: 'Writing & content', query: 'writing' },
+  { label: 'Code & dev tools', query: 'coding' },
+  { label: 'Image generation', query: 'image' },
+  { label: 'Research & search', query: 'research' },
+  { label: 'Productivity', query: 'productivity' },
+]
+
 interface HeroProps {
   dark: boolean
-  workflowTerm?: string
 }
 
-export default function Hero({ dark, workflowTerm = 'Workflows' }: HeroProps) {
+export default function Hero({ dark }: HeroProps) {
   const bgImage = dark
     ? `${BASE}images/Background_DarkMode.svg`
     : `${BASE}images/Background_LightMode.svg`
@@ -48,10 +55,27 @@ export default function Hero({ dark, workflowTerm = 'Workflows' }: HeroProps) {
             id="hero-heading"
             className="text-[clamp(2rem,5.5vw,5.5rem)] leading-[1.05] tracking-tight text-[var(--g2-dark)] mb-7 text-center"
           >
-            <span className="font-light">Real Intelligence for </span>
+            <span className="font-light">Real Intelligence for</span>
+            <br />
             <span className="font-medium gradient-text">Real AI.</span>
           </h1>
         </div>
+
+        {/* Intent chips — above search */}
+        {<div className="flex justify-center gap-2 mb-5 flex-wrap">
+          {CHIPS.map((chip) => (
+            <button
+              key={chip.label}
+              onClick={() => {
+                setQuery(chip.query)
+                setDropdownOpen(true)
+              }}
+              className="text-[13px] font-semibold px-4 py-2 rounded-full bg-[var(--g2-surface)] border border-[var(--g2-border)] text-[var(--g2-dark)] shadow-sm hover:border-[var(--g2-purple)] hover:text-[var(--g2-purple)] hover:shadow-md transition-all"
+            >
+              {chip.label}
+            </button>
+          ))}
+        </div>}
 
         {/* Search bar + dropdown wrapper */}
         <div ref={searchRef} className="relative max-w-[1100px] mx-auto px-8">
@@ -70,7 +94,7 @@ export default function Hero({ dark, workflowTerm = 'Workflows' }: HeroProps) {
               <input
                 type="search"
                 value={query}
-                placeholder="Find AI products, workflows, evaluations, and experts..."
+                placeholder="Ask about tools, compare options, or find workflows..."
                 aria-label="Search G2 AI"
                 className="flex-1 bg-transparent text-[var(--g2-dark)] placeholder:text-[var(--g2-muted)] text-[16px] outline-none"
                 onChange={(e) => {
@@ -88,21 +112,6 @@ export default function Hero({ dark, workflowTerm = 'Workflows' }: HeroProps) {
               </button>
             </form>
           </div>
-
-          {/* Pillar pills below search */}
-          {!showDropdown && (
-            <div className="flex justify-center gap-2 mt-4 flex-wrap">
-              {['Agents', workflowTerm, 'Evaluations', 'Experts'].map((label) => (
-                <a
-                  key={label}
-                  href="#"
-                  className="text-[12px] font-semibold px-3.5 py-1.5 rounded-full border border-[var(--g2-border)] text-[var(--g2-muted)] hover:border-[var(--g2-purple)] hover:text-[var(--g2-purple)] transition-colors"
-                >
-                  {label}
-                </a>
-              ))}
-            </div>
-          )}
 
           {/* Dropdown */}
           {showDropdown && (

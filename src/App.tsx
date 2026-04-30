@@ -7,6 +7,7 @@ import FeaturePanels from './components/home/FeaturePanels'
 import TrendingGrid from './components/home/TrendingGrid'
 import PlaybookBuilder from './pages/PlaybookBuilder'
 import PlaybookView from './pages/PlaybookView'
+import ComingSoon from './pages/ComingSoon'
 
 function useTheme() {
   const [dark, setDark] = useState(true)
@@ -22,9 +23,9 @@ function Homepage({ dark, onToggle, workflowTerm = 'Workflows' }: { dark: boolea
       <a href="#main-content" className="skip-link">Skip to content</a>
       <Navbar dark={dark} onToggle={onToggle} workflowTerm={workflowTerm} />
       <main id="main-content">
-        <Hero dark={dark} workflowTerm={workflowTerm} />
-        <FeaturePanels workflowTerm={workflowTerm} />
+        <Hero dark={dark} />
         <TrendingGrid />
+        <FeaturePanels workflowTerm={workflowTerm} />
       </main>
     </div>
   )
@@ -40,6 +41,7 @@ export default function App() {
         <Route path="/ai-workflows" element={<Homepage dark={dark} onToggle={toggle} workflowTerm="AI Workflows" />} />
         <Route path="/ai-blueprints" element={<Homepage dark={dark} onToggle={toggle} workflowTerm="AI Blueprints" />} />
         <Route path="/ai-stacks" element={<Homepage dark={dark} onToggle={toggle} workflowTerm="AI Stacks" />} />
+        <Route path="/coming-soon" element={<ComingSoon />} />
         <Route path="/playbook/new" element={<PlaybookBuilder dark={dark} onToggle={toggle} />} />
         <Route path="/playbook/view/:id" element={<PlaybookView dark={dark} onToggle={toggle} />} />
       </Routes>
